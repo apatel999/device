@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Device.Api.Services;
+using Device.Api.Filters;
 
 namespace Device.Api
 {
@@ -32,6 +33,8 @@ namespace Device.Api
             services.AddControllers();
             services.AddTransient<IDeviceService, DeviceService>();
             services.AddDbContext<DeviceContext>(o => o.UseSqlServer(dbConnectionString));
+
+            services.AddScoped<DeviceAuthorizationFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,9 +44,6 @@ namespace Device.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //var context = app.ApplicationServices.GetService<DeviceContext>();
-            //TestData.AddTestData(context);
 
             app.UseRouting();
 
