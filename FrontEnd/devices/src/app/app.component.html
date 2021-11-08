@@ -1,0 +1,15 @@
+
+
+<div class="content">
+  <div class="search-card">
+    <div class="wrapper">
+      <i class="search-icon fas fa-search"></i>
+      <input type="text" name="search" (input)="onSearch($event)" [value]="searchTerm$ | async" [disabled]="disabled"  class="search" placeholder="Search device">
+      <button (click)="onCancel()" [disabled]="disabled">Cancel</button>
+      <img class="clear-icon"/>
+    </div>
+  </div>
+  <div class="outelet">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="card-container">
+  <div *ngFor="let device of devices$ | async" class="card">
+    <div class="item">
+      <device-icon [type]="device.type"></device-icon>
+    </div>
+    <div class="item-detail" >
+      <span>{{device.name}}</span><br/>
+      <span class="status">Status:{{ device.status}}</span>
+    </div>
+    <div class="item-info">
+        <i class="fas fa-info-circle" [routerLink]="['/device-detail', device.id]"></i>
+    </div>
+  </div>
+</div>
+

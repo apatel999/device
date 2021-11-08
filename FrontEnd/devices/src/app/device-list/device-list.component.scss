@@ -1,0 +1,41 @@
+.card svg.material-icons path {
+  fill: #888;
+}
+
+.card-container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.card {
+  all: unset;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  padding: 16px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+
+}
+.item, .item-info{
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  line-height: 24px;
+  width: 30px;
+  text-align: center;
+
+}
+.item-info{
+  text-align: right;
+  margin-right: 20px;
+
+}
+.item-detail {
+  flex-grow: 2;
+}
+
+.status{
+  color: #bbb;
+}

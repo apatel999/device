@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="relateddevice-container">
+    <div><b>Related Devices:</b></div>
+    <div *ngFor="let device of relatedDevices$ | async" class="card">
+      <div class="item">
+        <device-icon [type]="device.type"></device-icon>
+      </div>
+
+      <div class="item-desc">
+        <span>{{device.name}}</span><br/>
+        <span class="status">Status: {{device.status}}</span>
+      </div>
+    </div>
+
+    <span *ngIf="!(relatedDevices$ | async)">
+      There are no related devices.
+    </span>
+  </div>
+
+  <div *ngIf="device$ | async as device" class = "device-detail-container">
+    <div class="header">
+      <b>Detail: {{device.name}}</b>
+    </div>
+    <div class="device-info">
+        <div>Status: {{device.status}}</div>
+        <div>Tempratur:{{device.temprature}} Celsius</div>
+        <div>
+          <div>Usage:</div>
+          <div class="graph">
+            <img src="/assets/graph.png" />
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+<a [routerLink]="['/device-list']">Back</a>
+
